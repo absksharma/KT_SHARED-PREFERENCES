@@ -12,17 +12,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        var sPref = getPreferences(MODE_PRIVATE)
-        var color = sPref.getInt("COLOR", Color.WHITE)
+        val sPref = getPreferences(MODE_PRIVATE)
+        val color = sPref.getInt("COLOR", Color.WHITE)
         binding.llBackground.setBackgroundColor(color)
 
         fun saveColor(color: Int) {
-            var editor = sPref.edit()
+            val editor = sPref.edit()
             editor.putInt("COLOR", color)
             editor.apply()
         }
-
 
         binding.red.setOnClickListener {
             binding.llBackground.setBackgroundColor(Color.RED)
